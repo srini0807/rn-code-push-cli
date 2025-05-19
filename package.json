@@ -1,7 +1,7 @@
 {
   "name": "rn-code-push-cli",
   "description": "rn-code-push is command tools for react native",
-  "version": "1.0.0",
+  "version": "1.0.9",
   "preferGlobal": true,
   "author": {
     "name": "Srinivas",
@@ -11,7 +11,12 @@
     "compile": "babel --presets es2015-loose,stage-1 --plugins transform-runtime src/ --out-dir lib/",
     "watch-compile": "npm run compile -- --watch",
     "watch": "npm run watch-compile",
-    "prepublish": "npm run compile"
+    "prepublish": "npm run compile",
+    "eslint": "eslint src/"
+  },
+  "bin": {
+    "rn-code-push-cli": "./bin/index.js",
+    "rncodepush": "./bin/index.js"
   },
   "contributors": [
     {
@@ -19,6 +24,7 @@
       "email": "finesseme945@gmail.com"
     }
   ],
+  "main": "lib/index.js",
   "dependencies": {
     "asciify": "^1.3.5",
     "babel-runtime": "6.6.1",
@@ -50,21 +56,38 @@
     "babel-preset-es2015": "^6.13.2",
     "babel-preset-es2015-loose": "^7.0.0",
     "babel-preset-stage-1": "^6.13.0",
+    "eslint": "^3.18.0",
+    "eslint-config-standard": "^7.1.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^2.1.1",
+    "istanbul": "0.4.0",
+    "mocha": "1.20.1",
     "muk": "0.3.1"
   },
   "keywords": [
     "update",
     "push",
-    "rn",
+    "rnkit",
     "framework",
+    "es6",
+    "es7",
     "async",
     "await",
+    "yield",
+    "websocket",
+    "generator-function",
     "typescript"
   ],
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/srini0807/rn-code-push-cli"
+  },
+  "engines": {
+    "node": ">=0.12.0"
   },
   "license": "MIT",
-  "readmeFilename": "README.md"
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/srini0807/rn-code-push-cli/issues"
+  }
 }

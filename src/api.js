@@ -1,5 +1,5 @@
 const fetch = require('isomorphic-fetch')
-let host = process.env.RN_CODE_PUSH_HOST || 'https://storeservices.gemseducation.com/test/'
+let host = process.env.RNKIT_CODE_PUSH_HOST || 'https://update.rnkit.io/api/v1'
 const fs = require('fs-promise')
 import * as fsOrigin from 'fs'
 import request from 'request'
@@ -45,15 +45,15 @@ export async function closeToken () {
     savedToken = undefined
   }
   Token = undefined
-  host = process.env.RN_CODE_PUSH_HOST || 'https://storeservices.gemseducation.com/test/'
+  host = process.env.RNKIT_CODE_PUSH_HOST || 'https://update.rnkit.io/v1/api/'
 }
 
 async function query (url, options) {
   const resp = await fetch(url, options)
   const json = await resp.json()
   if (json.errno === 401) {
-    console.log(colors.red('Not loggedin.'))
-    console.log('Run `rn-code-push login` at your project directory to login.')
+    console.log(colors.red('Not loggined.'))
+    console.log('Run `rn-code-push-cli login` at your project directory to login.')
     process.exit(1)
   } else if (json.errno !== 0) {
     throw new Error(colors.red(`errno:${json.errno}  msg:${JSON.stringify(json.errmsg)}`))

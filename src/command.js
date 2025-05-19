@@ -52,7 +52,7 @@ try {
     throw new Error('not found react-native dependencies')
   }
 } catch (e) {
-  console.log(colors.green('rn-code-push: ') + colors.red('没找到React-Native配置信息, 请切换至RN项目目录运行此命令!'))
+  console.log(colors.green('rn-code-push-cli ') + colors.red('rn-code-push-cli'))
   console.error(colors.red(e))
   process.exit(1)
 }
@@ -112,7 +112,7 @@ const cmd = () => {
     .command('register')
     .description('Register a new rn-code-push account')
     .action(async() => {
-      open('https://storeservices.gemseducation.com')
+      open('https://update.rnkit.io')
       process.exit(-1)
     })
 
@@ -142,7 +142,7 @@ const cmd = () => {
     .command('app')
     .option('list', 'Lists the apps associated with your account')
     .option('ls', 'Lists the apps associated with your account')
-    .description('View and manage your rn-code-push apps')
+    .description('View and manage your rnkit-code-push apps')
     .action(async(arg) => {
       if (arg === 'list' || arg === 'ls') {
         try {
@@ -205,7 +205,7 @@ const cmd = () => {
 
   program
     .command('uploadIpa <ipaFilePath>')
-    .description('upload ios ipa file to rn code push server')
+    .description('upload ios ipa file to rnkit code push server')
     .option('-k, --app_key_path <app_key_path>', 'the json file path of app_key')
     .action(async(ipaFilePath, options) => {
       try {
@@ -217,7 +217,7 @@ const cmd = () => {
 
   program
     .command('uploadApk <apkFilePath>')
-    .description('upload android apk file to rn code push server')
+    .description('upload android apk file to rnkit code push server')
     .option('-k, --app_key_path <app_key_path>', 'the json file path of app_key')
     .action(async (apkFilePath, options) => {
       try {
@@ -276,7 +276,7 @@ const cmd = () => {
     .on('--help', () => {
       console.log(colors.bold('  Examples:'))
       console.log('')
-      console.log(colors.magenta('  $rn-code-push --platform ios --ppkFile /data/my-app/build/output/android.xxxxx.ppk'))
+      console.log(colors.magenta('  $rnkit-code-push --platform ios --ppkFile /data/my-app/build/output/android.xxxxx.ppk'))
       console.log('')
     })
     .action(async(args) => {
@@ -320,7 +320,7 @@ const cmd = () => {
 
   program
     .command('web')
-    .description('open rn-code-push website')
+    .description('open rnkit-code-push website')
     .action(() => {
       open('https://update.rnkit.io')
       process.exit(-1)
@@ -340,7 +340,7 @@ loadToken()
   })
   .catch((err) => {
     if (err.status === 401) {
-      console.log('Not loggined.\nRun `rn-code-push login` at your project directory to login.')
+      console.log('Not loggined.\nRun `rnkit-code-push login` at your project directory to login.')
       return
     }
     console.error(err.message)

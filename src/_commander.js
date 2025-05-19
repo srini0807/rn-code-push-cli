@@ -1,7 +1,3 @@
-/**
- * Module dependencies
- */
-
 const _ = require('lodash')
 const program = require('commander')
 import asciify from 'asciify'
