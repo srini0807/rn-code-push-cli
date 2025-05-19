@@ -1,6 +1,7 @@
 const fetch = require('isomorphic-fetch')
 let host = process.env.RNKIT_CODE_PUSH_HOST || 'https://update.rnkit.io/api/v1'
-const fs = require('fs-promise')
+//const fs = require('fs-promise')
+const fs = require('fs').promises;
 import * as fsOrigin from 'fs'
 import request from 'request'
 import ProgressBar from 'progress'

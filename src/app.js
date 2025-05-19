@@ -1,5 +1,5 @@
 import { question } from './utils'
-import * as fs from 'fs-promise'
+import { promises as fs } from 'fs';
 const {
   get
 } = require('./api')
